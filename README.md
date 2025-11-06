@@ -36,7 +36,7 @@ Genera el pipeline y métricas.
 ```bash
 python models/price_mpl/train_price_mlp.py
 # crea ./models/price_mlp_v1.joblib y ./reports/metrics/price_mlp_v1.json
-```tra
+```
 
 ### 2) Desplegar para inferencia
 
