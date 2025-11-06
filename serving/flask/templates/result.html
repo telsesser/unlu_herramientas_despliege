@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Resultado | Estimador{% endblock %}
+{% block content %}
+  <h2 style="margin-top:0;">Resultado</h2>
+  <p><strong>Tipo:</strong> {{ property_type }}</p>
+  <p><strong>Barrio:</strong> {{ neighborhood }}</p>
+  <p><strong>Superficie:</strong> {{ surface }} m²</p>
+  <hr />
+  <p style="font-size:1.25rem;"><strong>Precio estimado:</strong> {{ pred_fmt }}</p>
+  <p class="muted">Valor crudo: {{ "%.2f"|format(pred) }}</p>
+  <div style="margin-top:16px;">
+    <a href="{{ url_for('index') }}"><button type="button">Nueva estimación</button></a>
+  </div>
+{% endblock %}

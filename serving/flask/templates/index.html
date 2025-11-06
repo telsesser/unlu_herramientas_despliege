@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Ingresar datos | Estimador{% endblock %}
+{% block content %}
+  <form method="post" action="{{ url_for('predict') }}">
+    <div class="row">
+      <div>
+        <label for="property_type">Tipo de propiedad</label>
+        <select id="property_type" name="property_type" required>
+          <option value="" disabled selected>Elegí una opción…</option>
+          {% for pt in property_types %}
+            <option value="{{ pt }}">{{ pt }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div>
+        <label for="neighborhood">Barrio (l3)</label>
+        <select id="neighborhood" name="neighborhood" required>
+          <option value="" disabled selected>Elegí un barrio…</option>
+          {% for n in neighborhoods %}
+            <option value="{{ n }}">{{ n }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <label for="surface_covered">Superficie cubierta (m²)</label>
+    <input id="surface_covered" name="surface_covered" type="number" step="0.1" min="1" placeholder="Ej: 55" value="{{ default_surface }}"/>
+
+    <div style="margin-top:16px;">
+      <button type="submit">Estimar precio</button>
+    </div>
+  </form>
+{% endblock %}

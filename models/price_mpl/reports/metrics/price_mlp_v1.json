@@ -1,0 +1,38 @@
+{
+  "model_path": "/home/tomas/repos/dm/12_MLops/unlu_herramientas_despliege/models/price_mpl/models/price_mlp_v1.joblib",
+  "dataset_path": "data/processed/ar_properties_2022.csv",
+  "timestamp": "2025-11-06T15:38:10",
+  "random_state": 22,
+  "features": {
+    "numerical": [
+      "surface_covered"
+    ],
+    "categorical": [
+      "l3",
+      "property_type"
+    ]
+  },
+  "mlp_params": {
+    "hidden_layer_sizes": [
+      64,
+      32
+    ],
+    "activation": "relu",
+    "solver": "adam",
+    "alpha": 0.001,
+    "learning_rate_init": 0.001,
+    "max_iter": 500,
+    "random_state": 22,
+    "verbose": true,
+    "early_stopping": true
+  },
+  "split": {
+    "test_size": 0.25
+  },
+  "metrics": {
+    "MSE": 8951363868.812075,
+    "MAE": 49989.373364863524,
+    "RMSE": 94611.64763818498,
+    "R2": 0.7895596407901084
+  }
+}

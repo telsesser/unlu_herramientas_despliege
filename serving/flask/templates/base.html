@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}Estimador de Precios{% endblock %}</title>
+    <style>
+      :root { color-scheme: light dark; }
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; margin: 0; }
+      .container { max-width: 880px; margin: 0 auto; padding: 24px; }
+      .card { border: 1px solid rgba(127,127,127,.3); border-radius: 14px; padding: 18px 20px; margin-top: 18px; }
+      label { display:block; margin: 10px 0 6px 0; font-weight: 600; }
+      input, select, button { width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(127,127,127,.4); font-size: 16px; }
+      button { cursor: pointer; border: 0; background: #3b82f6; color: white; font-weight: 600; }
+      button:hover { filter: brightness(1.05); }
+      .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+      .alerts { margin: 10px 0; }
+      .alert { padding: 12px; border-radius: 10px; margin-bottom: 8px; }
+      .alert.error { background: #fecaca; color: #7f1d1d; }
+      .muted { opacity: .75; }
+      .header { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+      a { color: inherit; }
+    </style>
+    {% block head %}{% endblock %}
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1 style="margin:0;">Estimador de precio de propiedades</h1>
+      </div>
+      {% if get_flashed_messages() %}
+      <div class="alerts">
+        {% for m in get_flashed_messages(with_categories=true) %}
+          <div class="alert {{ m[0] }}">{{ m[1] }}</div>
+        {% endfor %}
+      </div>
+      {% endif %}
+      <div class="card">
+        {% block content %}{% endblock %}
+      </div>
+      <p class="muted" style="margin-top:14px;">
+        Modelo: <code>{{ model_path or 'models/price_mlp_v1.joblib' }}</code>
+      </p>
+    </div>
+  </body>
+</html>
