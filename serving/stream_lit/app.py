@@ -5,8 +5,7 @@ import streamlit as st
 
 # Paths (mismo criterio que en FastAPI)
 THIS_FILE = Path(__file__).resolve()
-BASE = Path(__file__).resolve().parent.parent
-PROJECT_ROOT = BASE
+PROJECT_ROOT = THIS_FILE.parents[2]  # .../mlops-class/
 DATA_PATH = PROJECT_ROOT / "data/processed/ar_properties_2022.csv"
 MODEL_PATH = PROJECT_ROOT / "models/price_mpl/models/price_mlp_v1.joblib"
 
